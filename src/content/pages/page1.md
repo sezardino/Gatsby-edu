@@ -1,6 +1,7 @@
 ---
 title: "Page A"
-slug: "/page-a"
+slug: "/"
+inNav: true
 ---
 
 This is a content from ./src/pages/page1.md

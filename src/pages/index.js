@@ -1,17 +1,20 @@
 import { graphql } from "gatsby";
 import React from "react";
+import Layout from "../components/layout";
 
-const PageA = ({data}) => {
+const PageA = ({ data }) => {
   const fields = data.markdownRemark.frontmatter;
-  return <>
-    <h1>{fields.title}</h1>
-    <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}></div>
-  </>;
+  return (
+    <Layout title={fields.title}>
+      <h1>{fields.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
+    </Layout>
+  );
 };
 
 const query = graphql`
   query {
-    markdownRemark(frontmatter: { slug: { eq: "/page-a" } }) {
+    markdownRemark(frontmatter: { slug: { eq: "/" } }) {
       frontmatter {
         title
       }
