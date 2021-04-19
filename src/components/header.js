@@ -1,42 +1,74 @@
-import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import * as React from "react";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import Container from "./container";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
+const query = graphql`
+  {
+    allMarkdownRemark(
+      filter: { frontmatter: { inNav: { eq: true } } }
+      sort: { fields: frontmatter___slug }
+    ) {
+      nodes {
+        frontmatter {
+          title
+          slug
+        }
+        id
+      }
+    }
+  }
+`;
+
+const NavLink = (item) => (
+  <li key={item.id} style={{ margin: 0 }}>
+    <Link
+      to={item.frontmatter.slug}
+      style={{ color: "white", padding: 0, textDecoration: "none" }}
+    >
+      {item.frontmatter.title}
+    </Link>
+  </li>
+);
+
+const Header = ({ siteTitle }) => {
+  const data = useStaticQuery(query);
+  const links = data.allMarkdownRemark.nodes.map(NavLink);
+  return (
+    <header
       style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        background: `rebeccapurple`,
+        marginBottom: `1.45rem`,
+        padding: "25px 0",
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
+      <Container>
+        <div
           style={{
-            color: `white`,
-            textDecoration: `none`,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <p style={{ fontSize: 25, color: "white", margin: 0 }}>Some logo</p>
+          </Link>
+          <nav style={{ maxWidth: 400, width: "100%" }}>
+            <ul
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                listStyleType: "none",
+                margin: 0,
+              }}
+            >
+              {links}
+            </ul>
+          </nav>
+        </div>
+      </Container>
+    </header>
+  );
+};
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default Header;
