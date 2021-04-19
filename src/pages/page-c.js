@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
 
-const PageA = ({data}) => {
+const PageC = ({data}) => {
   const fields = data.markdownRemark.frontmatter;
   return <>
     <h1>{fields.title}</h1>
@@ -11,7 +11,7 @@ const PageA = ({data}) => {
 
 const query = graphql`
   query {
-    markdownRemark(frontmatter: { slug: { eq: "/page-a" } }) {
+    markdownRemark(frontmatter: { slug: { eq: "/page-c" } }) {
       frontmatter {
         title
       }
@@ -21,4 +21,4 @@ const query = graphql`
 `;
 
 export { query };
-export default PageA;
+export default PageC;
