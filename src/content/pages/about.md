@@ -1,7 +1,4 @@
 ---
-title: "Page B"
-slug: "/page-b"
+title: "About"
 navOrder: 2
 ---
-
-This is a content from ./src/pages/page2.md

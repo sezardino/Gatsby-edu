@@ -1,6 +1,6 @@
 ---
-title: "Page A"
-slug: "/page-a"
+title: "Home"
+navOrder: 1
 ---
 
-This is a content from ./src/pages/page1.md
+## some

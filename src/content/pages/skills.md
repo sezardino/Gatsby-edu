@@ -1,7 +1,4 @@
 ---
-title: "Page C"
-slug: "/page-c"
+title: "Skills"
 navOrder: 3
 ---
-
-This is a content from ./src/pages/page3.md
