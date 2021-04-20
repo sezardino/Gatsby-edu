@@ -17,6 +17,7 @@ const query = graphql`
           fields {
             slug
           }
+          id
         }
       }
     }
@@ -24,7 +25,7 @@ const query = graphql`
 `;
 
 const NavLink = (item) => (
-  <li key={item.id} style={{ margin: 0 }}>
+  <li key={item.node.id} style={{ margin: 0 }}>
     <Link
       to={item.node.fields.slug}
       style={{ color: "white", padding: 0, textDecoration: "none" }}
