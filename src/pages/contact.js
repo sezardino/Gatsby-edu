@@ -5,7 +5,6 @@ import Layout from "../components/layout";
 const Contact = ({ data }) => {
   const fields = data.markdownRemark.frontmatter;
   const contactData = fields.contactData;
-  console.log(contactData);
   return (
     <Layout title={fields.title}>
       <h1>{fields.title}</h1>
