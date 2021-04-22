@@ -1,3 +1,4 @@
 ---
-title: "Work 5"
+title: "Work 4"
+image: ../../images/work-placeholder.jpeg
 ---
