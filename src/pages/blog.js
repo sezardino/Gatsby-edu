@@ -2,7 +2,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/layout";
 
-const PageA = ({ data }) => {
+const Blog = ({ data }) => {
   const fields = data.markdownRemark.frontmatter;
   return (
     <Layout title={fields.title}>
@@ -14,7 +14,7 @@ const PageA = ({ data }) => {
 
 const query = graphql`
   query {
-    markdownRemark(frontmatter: { slug: { eq: "/blog" } }) {
+    markdownRemark(fileAbsolutePath: { regex: "/pages/blog/" }) {
       frontmatter {
         title
       }
@@ -24,4 +24,4 @@ const query = graphql`
 `;
 
 export { query };
-export default PageA;
+export default Blog;

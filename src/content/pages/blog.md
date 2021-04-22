@@ -1,4 +1,4 @@
 ---
 title: "Blog Page"
-slug: "/blog"
+navOrder: 6
 ---

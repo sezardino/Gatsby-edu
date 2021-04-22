@@ -4,18 +4,20 @@ import Container from "./container";
 
 const query = graphql`
   {
-    allFile(
-      filter: { sourceInstanceName: { eq: "pages" } }
-      sort: { fields: childMarkdownRemark___frontmatter___slug }
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "//pages//" } }
+      sort: { fields: frontmatter___navOrder }
     ) {
-      nodes {
-        id
-        childMarkdownRemark {
-          id
+      edges {
+        node {
           frontmatter {
-            slug
             title
+            navOrder
           }
+          fields {
+            slug
+          }
+          id
         }
       }
     }
@@ -23,19 +25,19 @@ const query = graphql`
 `;
 
 const NavLink = (item) => (
-  <li key={item.id} style={{ margin: 0 }}>
+  <li key={item.node.id} style={{ margin: 0 }}>
     <Link
-      to={item.childMarkdownRemark.frontmatter.slug}
+      to={item.node.fields.slug}
       style={{ color: "white", padding: 0, textDecoration: "none" }}
     >
-      {item.childMarkdownRemark.frontmatter.title}
+      {item.node.frontmatter.title}
     </Link>
   </li>
 );
 
 const Header = ({ siteTitle }) => {
   const data = useStaticQuery(query);
-  const links = data.allFile.nodes.map(NavLink);
+  const links = data.allMarkdownRemark.edges.map(NavLink);
   return (
     <header
       style={{
