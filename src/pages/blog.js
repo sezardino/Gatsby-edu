@@ -5,7 +5,6 @@ import React from "react";
 import Layout from "../components/layout";
 
 const PostCard = ({ node }) => {
-  console.log(node);
   const image = getImage(node.frontmatter.featureImage);
   return {
     template: (
