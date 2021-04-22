@@ -1,34 +1,33 @@
 import { graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import Layout from "../components/layout";
-import Img from 'gatsby-image';
 
 const HomePage = ({ data }) => {
-  console.log(data);
   const fields = data.markdownRemark.frontmatter;
+  const image = getImage(fields.image);
   return (
     <Layout title={fields.title}>
-      <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}></div>
+      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
+      <GatsbyImage image={image} alt={"some alt"}/>
     </Layout>
   );
 };
 
 const query = graphql`
-query {
-  markdownRemark(fileAbsolutePath: {regex: "/home/"}) {
-    frontmatter {
-      title
-      image {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
+  query {
+    markdownRemark(fileAbsolutePath: { regex: "/home/" }) {
+      frontmatter {
+        title
+        image {
+          childImageSharp {
+            gatsbyImageData(placeholder: TRACED_SVG, layout: FIXED)
           }
         }
       }
+      html
     }
-    html
   }
-}
 `;
 
 export { query };
