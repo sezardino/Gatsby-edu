@@ -1,5 +1,6 @@
 ---
 title: "Post H"
+featureImage: ../../images/post-placeholder.jpg
 ---
 
 ## Content from post-a.md
