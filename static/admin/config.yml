@@ -1,5 +1,7 @@
 backend:
-  name: test-repo
+  name: github
+  repo: sezardino/Gatsby-edu
+  branch: netlify-cms
 
 media_folder: static/assets
 public_folder: /assets
