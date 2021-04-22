@@ -35,6 +35,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         value: newSlug === "/home/" ? "/" : newSlug,
       });
     }
+    if (node.fileAbsolutePath.includes("/works/")) {
+      createNodeField({
+        node,
+        name: `slug`,
+        value: slug,
+      });
+    }
   }
 };
 
