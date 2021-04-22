@@ -13,14 +13,14 @@ const Blog = ({ data }) => {
 };
 
 const query = graphql`
-query {
-  markdownRemark(fileAbsolutePath: {regex: "/blog/"}) {
-    frontmatter {
-      title
+  query {
+    markdownRemark(fileAbsolutePath: { regex: "/pages/blog/" }) {
+      frontmatter {
+        title
+      }
+      html
     }
-    html
   }
-}
 `;
 
 export { query };
