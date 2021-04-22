@@ -3,6 +3,7 @@ backend:
   repo: sezardino/Gatsby-edu
   branch: netlify-cms
 
+publish_mode: editorial_workflow
 media_folder: static/assets
 public_folder: /assets
 
@@ -12,7 +13,6 @@ collections:
     folder: /src/content/blog
     create: true
     fields:
-      - { name: path, label: Path }
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
