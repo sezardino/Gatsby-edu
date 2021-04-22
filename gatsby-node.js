@@ -1,9 +1,20 @@
 const path = require("path");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
+const SLUGS = {
+  WORK: "work-",
+  POST: "post-",
+};
+
+const TEMPLATES = {
+  WORK: path.resolve("./src/templates/WorkTemplate.js"),
+  POST: path.resolve("./src/templates/PostTemplate.js"),
+  DEFAULT: path.resolve("./src/templates/DefaultTemplate.js"),
+};
+
 const query = `
-query {
-  allMarkdownRemark(filter: {fields: {slug: {regex: "/\/blog\//"}}}) {
+{
+  allMarkdownRemark(filter: {fields: {slug: {regex: "/works\/work-|blog\/post-/"}}}) {
     edges {
       node {
         fields {
@@ -28,7 +39,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       });
     }
     if (node.fileAbsolutePath.includes("/pages/")) {
-      const newSlug = slug.replace('/pages', '');
+      const newSlug = slug.replace("/pages", "");
       createNodeField({
         node,
         name: `slug`,
@@ -51,11 +62,18 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const posts = result.data.allMarkdownRemark.edges;
   posts.forEach((item) => {
-    const { node } = item;
+    const { node: {fields: {slug}} } = item;
+
+    const template = slug.includes(SLUGS.WORK)
+      ? TEMPLATES.WORK
+      : slug.includes(SLUGS.POST)
+      ? TEMPLATES.POST
+      : TEMPLATES.DEFAULT;
+
     createPage({
-      path: node.fields.slug,
-      component: path.resolve("./src/templates/PostTemplate.js"),
-      context: { slug: node.fields.slug },
+      path: slug,
+      component: template,
+      context: { slug: slug },
     });
   });
 };
