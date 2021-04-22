@@ -16,6 +16,7 @@ const WorkCard = (data) => {
 };
 
 const Works = ({ data }) => {
+  console.log(data);
   const fields = data.markdownRemark.frontmatter;
   const works = data.allFile.edges;
   const workCards = works.map(WorkCard);
@@ -34,7 +35,7 @@ const Works = ({ data }) => {
 
 const query = graphql`
   query MyQuery {
-    markdownRemark(fileAbsolutePath: { regex: "/works/" }) {
+    markdownRemark(fileAbsolutePath: { regex: "/works.md/" }) {
       html
       frontmatter {
         title
