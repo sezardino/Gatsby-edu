@@ -57,7 +57,7 @@ const Header = ({ siteTitle }) => {
           <Link to="/" style={{ textDecoration: "none" }}>
             <p style={{ fontSize: 25, color: "white", margin: 0 }}>Some logo</p>
           </Link>
-          <nav style={{ maxWidth: 400, width: "100%" }}>
+          <nav style={{ maxWidth: 450, width: "100%" }}>
             <ul
               style={{
                 display: "flex",
