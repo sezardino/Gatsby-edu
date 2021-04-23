@@ -16,4 +16,5 @@ list: []
 list1:
   - dqwdqwdqw
   - dqwdwqdqd
+location: '{"type":"Point","coordinates":[21.9726563,52.6963611]}'
 ---
