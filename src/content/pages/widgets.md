@@ -8,4 +8,5 @@ code:
     const arrowFunc = () => {
       console.log(1);
     };
+color: "#b56868"
 ---
