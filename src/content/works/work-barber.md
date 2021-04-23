@@ -1,7 +1,7 @@
 ---
 title: Barber
 projectImage:
-  preview: /uploads/prew.jpg
+  preview: /uploads/mob.jpg
   mobile: /uploads/mob.jpg
   desktop: /uploads/desk.jpg
   description:
