@@ -46,16 +46,34 @@ collections:
         name: "test"
         fields:
           - { name: title, label: Title, widget: string, default: About }
-          - { name: boolean, label: Boolean, widget: boolean, required: true, default: false}
-          - { name: code, label: Code, widget: code}
-          - { name: color, label: Color, widget: color, allowInput: true, enableAlpha: true }
-          - { name: date, label: Date, widget: date, format: 'MMM Do YY' }
-          - { name: dateTime, label: DateTime, widget: datetime}
+          - {
+              name: boolean,
+              label: Boolean,
+              widget: boolean,
+              required: true,
+              default: false,
+            }
+          - { name: code, label: Code, widget: code }
+          - {
+              name: color,
+              label: Color,
+              widget: color,
+              allowInput: true,
+              enableAlpha: true,
+            }
+          - { name: date, label: Date, widget: date, format: "MMM Do YY" }
+          - { name: dateTime, label: DateTime, widget: datetime }
           - { name: file, label: File, widget: file, required: false }
           - { name: image, label: Image, widget: image, required: false }
           - { name: list, label: List, widget: list, default: ["news"] }
-          - { name: list1, label: List1, widget: list, minimize_collapsed: true, field: {label: Text, name: text, widget: string, summary: WG} }
-          - {label: "Location", name: "location", widget: "map" }
+          - {
+              name: list1,
+              label: List1,
+              widget: list,
+              minimize_collapsed: true,
+              field: { label: Text, name: text, widget: string, summary: WG },
+            }
+          - { label: "Location", name: "location", widget: "map" }
           - { label: markdown, name: body, widget: markdown }
           - { label: Number, name: number, widget: number }
           - label: Object
@@ -64,4 +82,96 @@ collections:
             fields:
               - { label: St, name: st, widget: string }
               - { label: St3, name: st2, widget: string }
-          - { label: select, name: select, widget: select, options: ["left", "center", "right"] }
+          - {
+              label: select,
+              name: select,
+              widget: select,
+              options: ["left", "center", "right"],
+            }
+      - file: src/content/pages/skills.md
+        label: "Skills"
+        name: "skills"
+        fields:
+          - { name: title, label: Title, widget: hidden, default: Skills }
+          - { name: navOrder, label: Order in menu, widget: hidden, default: 3 }
+          - { name: sTitle, label: Page Title, widget: string }
+          - name: skills
+            label: skills
+            widget: list
+            fields:
+              - { name: name, label: Name, widget: string }
+              - {
+                  name: level,
+                  label: Level,
+                  widget: number,
+                  min: 1,
+                  max: 5,
+                  step: 1,
+                  value_type: int,
+                }
+              - {
+                  name: description,
+                  label: Description,
+                  widget: string,
+                  required: false,
+                }
+      - file: src/content/pages/works.md
+        label: "Works"
+        name: "works"
+        fields:
+          - { name: title, label: Title, widget: hidden, default: Works }
+          - { name: navOrder, label: Order in menu, widget: hidden, default: 4 }
+          - { name: sTitle, label: Page Title, widget: string }
+      - file: src/content/pages/contact.md
+        label: "Contact"
+        name: "contact"
+        fields:
+          - { name: title, label: Title, widget: hidden, default: Works }
+          - { name: navOrder, label: Order in menu, widget: hidden, default: 5 }
+          - { name: sTitle, label: Page Title, widget: string }
+          - label: Contact Data
+            name: contactData
+            widget: object
+            fields:
+              - { label: Telephone, name: tel, widget: string }
+              - { label: E-mail, name: mail, widget: string }
+              - label: Social Data
+                name: social
+                widget: list
+                fields:
+                  - { label: Name of social media, name: name, widget: string }
+                  - {
+                      label: Label for that social media,
+                      name: label,
+                      widget: string,
+                    }
+                  - { label: Link, name: link, widget: string }
+
+  - name: works
+    label: Works
+    folder: /src/content/works
+    create: true
+    slug: work-{{title}}
+    fields:
+      - { label: Project Name, name: title, widget: string }
+      - label: Project image
+        name: projectImage
+        widget: object
+        fields:
+          - { label: Preview Image, name: preview, widget: image }
+          - { label: Mobile Image, name: mobile, widget: image }
+          - { label: Desktop Image, name: desktop, widget: image }
+          - label: Description
+            name: description
+            widget: object
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Description, name: desc, widget: text }
+              - { label: Repository link, name: repo, widget: string }
+              - { label: View link, name: view, widget: string }
+              - {
+                  label: Technologies,
+                  name: techn,
+                  widget: list,
+                  field: { label: Technology, name: name, widget: string },
+                }
