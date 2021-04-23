@@ -1,7 +1,7 @@
 ---
-title: "Home"
+title: Home
 navOrder: 1
-image: ../../images/home.jpg
+image: /images/uploads/img.jpg
 ---
 
 # Edward
