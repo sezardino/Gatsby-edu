@@ -5,7 +5,7 @@ mage: /images/uploads/img.jpg
 name: Edward
 surname: Arechwa
 position: Junior Front-end developer
-image: /uploads/prew.jpg
+image: /uploads/images.jpg
 ---
 
 # Edward
