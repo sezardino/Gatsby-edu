@@ -1,16 +1,16 @@
 import { graphql, Link } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
-import { GatsbyImage } from "gatsby-plugin-image";
+// import { getImage } from "gatsby-plugin-image";
+// import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import Layout from "../components/layout";
 
 const WorkCard = (data) => {
   const fields = data.node.childMarkdownRemark.frontmatter;
-  const image = getImage(fields.image);
+  // const image = getImage(fields.image);
   return (
     <Link to={data.node.childMarkdownRemark.fields.slug} key={data.node.childMarkdownRemark.id}>
       <h3>{fields.title}</h3>
-      <GatsbyImage image={image} alt={fields.title} />
+      {/* <GatsbyImage image={image} alt={fields.title} /> */}
     </Link>
   );
 };
@@ -55,15 +55,7 @@ const query = graphql`
             }
             frontmatter {
               title
-              image {
-                childImageSharp {
-                  gatsbyImageData(
-                    width: 250
-                    layout: FIXED
-                    placeholder: BLURRED
-                  )
-                }
-              }
+
             }
           }
         }
@@ -71,6 +63,15 @@ const query = graphql`
     }
   }
 `;
+// image {
+//   childImageSharp {
+//     gatsbyImageData(
+//       width: 250
+//       layout: FIXED
+//       placeholder: BLURRED
+//     )
+//   }
+// }
 
 export { query };
 export default Works;

@@ -10,7 +10,6 @@ code:
     };
 color: "#b56868"
 date: Mar 31st 21
-file: /uploads/cloud-security.htm
 number: 2
 markdown: |-
   dqdqwdwdsadasda  dq d
