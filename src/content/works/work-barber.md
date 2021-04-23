@@ -12,4 +12,12 @@ projectImage:
     techn:
       - html
       - css
+description:
+  name: bar
+  desc: "1"
+  repo: "12"
+  view: "32"
+  techn:
+    - "1"
+    - "3"
 ---
