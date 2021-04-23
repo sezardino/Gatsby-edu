@@ -2,6 +2,7 @@
 title: Home
 navOrder: 1
 mage: /images/uploads/img.jpg
+image: /images/uploads/img.jpg
 ---
 
 # Edward
