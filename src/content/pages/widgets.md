@@ -12,6 +12,5 @@ color: "#b56868"
 date: Mar 31st 21
 dateTime: 2021-04-06T10:16:43.790Z
 file: /uploads/cloud-security.htm
-list:
-  - fqfwfdqwddwqddwqdwq
+list: []
 ---
