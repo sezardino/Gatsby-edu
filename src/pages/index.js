@@ -19,11 +19,7 @@ const query = graphql`
     markdownRemark(fileAbsolutePath: { regex: "/home/" }) {
       frontmatter {
         title
-        image {
-          childImageSharp {
-            gatsbyImageData(placeholder: TRACED_SVG, layout: FIXED)
-          }
-        }
+
       }
       html
     }

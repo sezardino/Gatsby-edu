@@ -1,10 +1,16 @@
 ---
 title: Home
 navOrder: 1
-image: /images/uploads/img.jpg
+mage: /images/uploads/img.jpg
 ---
 
 # Edward
 # Arechwa
 
 Junior Front-end developer
+
+image {
+          childImageSharp {
+            gatsbyImageData(placeholder: TRACED_SVG, layout: FIXED)
+          }
+        }

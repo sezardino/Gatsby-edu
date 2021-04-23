@@ -3,7 +3,6 @@ import React from "react";
 import Layout from "../components/layout";
 
 const changeP = (string, className) => {
-  console.log(string);
   return string.replace('<p>', `<p class="${className}">`)
 }
 

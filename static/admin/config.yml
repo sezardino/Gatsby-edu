@@ -4,15 +4,28 @@ backend:
   branch: netlify-cms
 
 publish_mode: editorial_workflow
-media_folder: static/assets
-public_folder: /assets
+media_folder: "/src/images/uploads"
+public_folder: "/images/uploads"
+show_preview_links: true
 
 collections:
   - name: blog
     label: Blog
     folder: /src/content/blog
     create: true
+    slug: post-{{title}}
     fields:
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
+
+  - name: pages
+    label: Pages
+    files:
+      - file: src/content/pages/home.md
+        label: "Home"
+        name: "home"
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: navOrder, label: Order in menu, widget: hidden, default: 1 }
+          - { name: image, label: Image, widget: image }

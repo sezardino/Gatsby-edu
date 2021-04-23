@@ -6,7 +6,6 @@ import Layout from "../components/layout";
 
 const PostTemplate = ({data}) => {
   const fields = data.markdownRemark
-  console.log(fields);
   const image = getImage(fields.frontmatter.image);
   return (
     <Layout title={fields.frontmatter.title} >

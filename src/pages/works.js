@@ -16,7 +16,6 @@ const WorkCard = (data) => {
 };
 
 const Works = ({ data }) => {
-  console.log(data);
   const fields = data.markdownRemark.frontmatter;
   const works = data.allFile.edges;
   const workCards = works.map(WorkCard);
