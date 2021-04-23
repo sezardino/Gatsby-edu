@@ -1,5 +1,5 @@
 ---
-title: Barber
+title: Barbe
 projectImage:
   preview: /uploads/prew.jpg
   mobile: /uploads/mob.jpg
