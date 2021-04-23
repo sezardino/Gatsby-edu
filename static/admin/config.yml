@@ -161,17 +161,17 @@ collections:
           - { label: Preview Image, name: preview, widget: image }
           - { label: Mobile Image, name: mobile, widget: image }
           - { label: Desktop Image, name: desktop, widget: image }
-          - label: Description
-            name: description
-            widget: object
-            fields:
-              - { label: Name, name: name, widget: string }
-              - { label: Description, name: desc, widget: text }
-              - { label: Repository link, name: repo, widget: string }
-              - { label: View link, name: view, widget: string }
-              - {
-                  label: Technologies,
-                  name: techn,
-                  widget: list,
-                  field: { label: Technology, name: name, widget: string },
-                }
+      - label: Description
+        name: description
+        widget: object
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Description, name: desc, widget: text }
+          - { label: Repository link, name: repo, widget: string }
+          - { label: View link, name: view, widget: string }
+          - {
+              label: Technologies,
+              name: techn,
+              widget: list,
+              field: { label: Technology, name: name, widget: string },
+            }
