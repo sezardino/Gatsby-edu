@@ -12,4 +12,9 @@ projectImage:
     techn:
       - html
       - css
+description:
+  name: f32
+  desc: r32
+  repo: r23
+  view: r32
 ---
