@@ -9,7 +9,7 @@ const HomePage = ({ data }) => {
   return (
     <Layout title={fields.title}>
       <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
-      <GatsbyImage image={image} alt={"some alt"}/>
+      <GatsbyImage image={image} alt={"some alt"} />
     </Layout>
   );
 };
@@ -17,11 +17,15 @@ const HomePage = ({ data }) => {
 const query = graphql`
   query {
     markdownRemark(fileAbsolutePath: { regex: "/home/" }) {
+      html
       frontmatter {
         title
-
+        image {
+          childImageSharp {
+            gatsbyImageData(placeholder: TRACED_SVG, layout: FIXED)
+          }
+        }
       }
-      html
     }
   }
 `;

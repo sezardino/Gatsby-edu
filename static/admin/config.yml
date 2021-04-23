@@ -4,7 +4,7 @@ backend:
   branch: netlify-cms
 
 publish_mode: editorial_workflow
-media_folder: static/img
+media_folder: static/images
 public_folder: /uploads
 show_preview_links: true
 
@@ -52,3 +52,16 @@ collections:
           - { name: date, label: Date, widget: date, format: 'MMM Do YY' }
           - { name: dateTime, label: DateTime, widget: datetime}
           - { name: file, label: File, widget: file, required: false }
+          - { name: image, label: Image, widget: image, required: false }
+          - { name: list, label: List, widget: list, default: ["news"] }
+          - { name: list1, label: List1, widget: list, minimize_collapsed: true, field: {label: Text, name: text, widget: string, summary: WG} }
+          - {label: "Location", name: "location", widget: "map" }
+          - { label: markdown, name: body, widget: markdown }
+          - { label: Number, name: number, widget: number }
+          - label: Object
+            name: object
+            widget: object
+            fields:
+              - { label: St, name: st, widget: string }
+              - { label: St3, name: st2, widget: string }
+          - { label: select, name: select, widget: select, options: ["left", "center", "right"] }
