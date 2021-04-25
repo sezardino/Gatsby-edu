@@ -4,5 +4,5 @@ navOrder: 1
 name: Edward
 surname: Arechwa
 position: Junior Front-end developer
-image: /img/twitter.svg
+image: /images/uploads/vimeo.svg
 ---
