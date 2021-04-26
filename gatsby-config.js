@@ -6,11 +6,10 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/static/uploads`,
+        path: `${__dirname}/static/img`,
         name: "uploads",
       },
     },
@@ -21,8 +20,35 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: `${__dirname}/src/content`,
+      },
+    },
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-relative-images`,
+            options: {
+              name: "uploads",
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 2048,
+            },
+          },
+        ],
+      },
+    },
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -35,33 +61,9 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+
+    `gatsby-plugin-image`,
     `gatsby-plugin-gatsby-cloud`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `content`,
-        path: `${__dirname}/src/content`,
-      },
-    },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          // {
-          //   resolve: "gatsby-remark-relative-images",
-          //   options: {
-          //     name: "uploads",
-          //   },
-          // },
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 2048,
-            },
-          },
-        ],
-      },
-    },
     `gatsby-plugin-netlify-cms`,
   ],
 };

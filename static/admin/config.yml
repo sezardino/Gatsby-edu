@@ -4,8 +4,8 @@ backend:
   branch: netlify-cms
 
 publish_mode: editorial_workflow
-media_folder: static/uploads
-public_folder: /uploads
+media_folder: static/img
+public_folder: /img
 show_preview_links: true
 
 collections:
