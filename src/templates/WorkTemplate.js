@@ -4,35 +4,66 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import Layout from "../components/layout";
 
-const PostTemplate = ({data}) => {
-  // const fields = data.markdownRemark
-  // const image = getImage(fields.frontmatter.image);
+const PostTemplate = ({ data }) => {
+  const fields = data.markdownRemark
+  console.log(fields);
+  const preview = getImage(fields.frontmatter.projectImage.preview);
+  const desktop = getImage(fields.frontmatter.projectImage.desktop);
+  const mobile = getImage(fields.frontmatter.projectImage.mobile);
+  console.log(fields.frontmatter.description);
+  const {name, desc, repo, view, techn} = fields.frontmatter.description;
   return (
-    <p>1</p>
-    // <Layout title={fields.frontmatter.title} >
-    //   <h1>{fields.frontmatter.title}</h1>
-    //   <GatsbyImage image={image} alt={fields.frontmatter.title}/>
-    //   <p>Description:</p>
-    //   <div dangerouslySetInnerHTML={{__html: fields.html}}></div>
-    // </Layout>
+    <Layout title={fields.frontmatter.title} >
+      <h1>{fields.frontmatter.title}</h1>
+      <GatsbyImage image={preview} alt={fields.frontmatter.title}/>
+      <GatsbyImage image={desktop} alt={fields.frontmatter.title}/>
+      <GatsbyImage image={mobile} alt={fields.frontmatter.title}/>
+      <p>Description:</p>
+      <p>name: {name}</p>
+      <p>name: {desc}</p>
+      <p>name: {repo}</p>
+      <p>name: {view}</p>
+      <p>Technologies</p>
+      <ul>
+        {techn.map((item) => <p key={item}>{item}</p>)}
+      </ul>
+    </Layout>
   );
 };
 
-// const query = graphql`
-//   query($slug: String!) {
-//     markdownRemark(fields: { slug: { eq: $slug } }) {
-//       html
-//       frontmatter {
-//         title
-//         image {
-//           childImageSharp {
-//             gatsbyImageData(placeholder: BLURRED, width: 450, layout: FIXED)
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+const query = graphql`
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        description {
+          desc
+          name
+          repo
+          view
+          techn
+        }
+        projectImage {
+          desktop {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, width: 450, layout: FIXED)
+            }
+          }
+          mobile {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, width: 450, layout: FIXED)
+            }
+          }
+          preview {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, width: 450, layout: FIXED)
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
-// export { query };
+export { query };
 export default PostTemplate;
