@@ -10,7 +10,6 @@ const PostTemplate = ({ data }) => {
   const preview = getImage(fields.frontmatter.projectImage.preview);
   const desktop = getImage(fields.frontmatter.projectImage.desktop);
   const mobile = getImage(fields.frontmatter.projectImage.mobile);
-  console.log(fields.frontmatter.description);
   const {name, desc, repo, view, techn} = fields.frontmatter.description;
   return (
     <Layout title={fields.frontmatter.title} >
