@@ -9,6 +9,9 @@ projectImage:
     techn:
       - html
       - css
+  preview: /img/prew.jpg
+  mobile: /img/mob.jpg
+  desktop: /img/desk.jpg
 description:
   name: f32
   desc: r32
