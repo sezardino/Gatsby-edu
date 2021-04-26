@@ -8,7 +8,8 @@ const HomePage = ({ data }) => {
   const image = getImage(fields.image);
   return (
     <Layout title={fields.title}>
-      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
+      <h1><span>{fields.name}</span> <span>{fields.surname}</span></h1>
+      <p>{fields.position}</p>
       <GatsbyImage image={image} alt={"some alt"} />
     </Layout>
   );
@@ -20,6 +21,9 @@ const query = graphql`
       html
       frontmatter {
         title
+        name
+        surname,
+        position
         image {
           childImageSharp {
             gatsbyImageData(placeholder: TRACED_SVG, layout: FIXED)
