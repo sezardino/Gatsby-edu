@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import Header from "./header";
 import "./layout.css";
-import Container from "./container";
 import Seo from "./seo";
 
 const Layout = ({ children, title }) => {
@@ -19,7 +18,7 @@ const Layout = ({ children, title }) => {
 
   return (
     <>
-      <Seo title={title}/>
+      <Seo title={title} />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
@@ -28,9 +27,7 @@ const Layout = ({ children, title }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>
-          <Container>{children}</Container>
-        </main>
+        <main>{children}</main>
       </div>
     </>
   );
